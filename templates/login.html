@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+
+
+
+
+{% block body %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message[1] }}">{{ message[0] }}</button>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% endblock %}
+
+
+{% block form %}
+<form method='POST' action='/login'>
+
+
+    <label for='email'>Email ID:</label><br>
+    <input type='email' id='email' name='email'></input><br>
+    
+    <label for='password'>Password:</label><br>
+    <input type='password' id='password' name='password'></input><br>
+
+    <button type="submit">Login</button>
+</form>
+{% endblock %}
+
+
+
+{% block nav %}
+{% if current_user.is_authenticated %}
+<nav>
+    <ul class="nav-links">
+        <h5>
+            Welcome {{current_user.fname}}
+         </h5>
+        <a href='/predict'><button>House Price Prediction</button></a>
+        <a href='/logout'><button>Logout</button></a>
+    </ul>
+
+{% else %}
+
+<ul class="nav-links">
+    <h5>
+        Welcome, Please Login below
+     </h5>
+    <a href='/register'><button>Register</button></a>
+    <a href='/login'><button>Reset Form</button></a>
+    
+</ul>
+    
+
+</nav>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+

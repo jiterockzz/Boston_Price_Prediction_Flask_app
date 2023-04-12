@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Price Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("/static/back_img.jpg");
+            background-position: center;
+            background-position-y: 485px;
+        }
+        h5 {
+            
+            font-size: 20px;
+            font-family: cursive;
+            background-color: transparent;
+            margin: 0;
+            color: antiquewhite;
+        }
+        ul.nav-links {
+            display: inline-grid;
+            gap: 15px;
+        }
+        a {
+            color: navajowhite;
+            text-decoration: blink;
+            font-size:25px;
+        }
+        form {
+            display: grid;
+            width: 50%;
+            margin: 0 auto 0 auto;
+            background-color: indigo;
+            color: floralwhite;
+            padding: 25px;
+            border-radius: 45px;
+        }
+        form button {
+            width: 100px;
+            background-color: violet;
+            border-radius: 10px;
+            border-style: dashed;
+            height: 40px;
+        }
+        bclass {
+            
+        }
+    </style>
+</head>
+<body>
+   
+    {% block nav %}
+    {% if current_user.is_authenticated %}
+    <nav>
+        <ul class="nav-links">
+            <h5>
+                Welcome {{current_user.fname}}
+             </h5>
+            <a href='/predict'><button>House Price Prediction</button></a>
+            <a href='/logout'><button>Logout</button></a>
+        </ul>
+
+    {% else %}
+
+    <ul class="nav-links">
+        <h5>
+            Welcome, Please Login below
+         </h5>
+        <a href='/register'><button>Register</button></a>
+        <a href='/login'><button>Login</button></a>
+        
+    </ul>
+        
+
+    </nav>
+    {% endif %}
+    {% endblock %}
+
+   
+
+    
+    {% block form %}
+    {% endblock %}
+
+</body>
+</html>

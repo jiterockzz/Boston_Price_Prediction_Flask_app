@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+
+{% block form %}
+
+
+
+<form action='/predict' method='POST'>
+
+    <label for='rm'>No of Rooms:</label><br>
+    <input type='number' id='rm' name='rooms_count'></input><br>
+
+    <label for='pt-ratio'>PT-Ratio</label><br>
+    <input type='number' id='pt-ratio' name='ptratio'></input><br>
+    
+    <label for='lstat'>LSTAT</label><br>
+    <input type='number' id='lstat' name='lstat'></input><br>
+    <bclass>
+    <button type="submit">Predict Price</button>
+    <h2>{{Predicted_price}}</h2>
+    <h2>{{error}}</h2>
+    </bclass>
+</form>
+
+
+{% endblock %}
+
+
+
+
+
+
+{% block body %}
+
+<div>
+    
+    <h2>{{ predicted_price }}</h2>
+        
+    </div>
+{% block nav %}
+{% if current_user.is_authenticated %}
+<nav>
+    <ul class="nav-links">
+        <h5>
+            Welcome {{current_user.fname}}
+         </h5>
+        <a href='/predict'><button>Reset Form</button></a>
+        <a href='/logout'><button>Logout</button></a>
+    </ul>
+
+{% else %}
+
+<ul class="nav-links">
+    <a href='/register'><button>Register</button></a>
+    <a href='/login'><button>Login</button></a>
+    
+</ul>
+    
+
+</nav>
+{% endif %}
+{% endblock %}
+
+
+{% endblock %}
