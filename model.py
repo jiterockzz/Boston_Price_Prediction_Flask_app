@@ -9,8 +9,8 @@ from sklearn.model_selection import train_test_split
 
 
 
-data = pd.read_csv(r'data\test_xdata.csv', sep=',')
-target = pd.read_csv(r'data\test_y_data.csv', sep=',')
+data = pd.read_csv('data/test_xdata.csv', sep=',')
+target = pd.read_csv('data/test_y_data.csv', sep=',')
 
 
 
